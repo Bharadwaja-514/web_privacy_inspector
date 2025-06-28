@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Privacy Inspector</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Add this BEFORE loading script.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script defer src="script.js"></script>
+
+  <script defer src="script.js"></script>
+  <style>
+    .ring-bg {
+      stroke: #2d3748;
+    }
+    .ring-fill {
+      stroke: #10b981;
+      stroke-dasharray: 251.2;
+      stroke-dashoffset: 251.2;
+      transition: stroke-dashoffset 1s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans min-h-screen flex items-center justify-center p-6">
+  <div class="w-full max-w-2xl bg-gray-800 p-6 rounded-2xl shadow-lg text-center">
+    <h1 class="text-3xl font-bold mb-6">🧠 Web Privacy Inspector</h1>
+
+    <!-- Start Scan Button -->
+    <button id="scanNow" class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-lg text-xl">
+      🔍 Start Scan
+    </button>
+
+    <!-- Scan animation -->
+    <div id="scanIcon" class="hidden text-center text-4xl mt-6 animate-bounce">🔎 Scanning...</div>
+
+    <!-- Circular Visual Privacy Ring -->
+    <div class="my-6">
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke-width="10" class="ring-bg fill-none" />
+        <circle id="privacyCircleFill" cx="50" cy="50" r="40" stroke-width="10" class="ring-fill fill-none transform -rotate-90 origin-center" />
+      </svg>
+    </div>
+
+    <!-- Privacy Report (Initially Hidden) -->
+    <div id="reportBlock" class="hidden mt-8 text-left space-y-2 text-lg">
+      <p><strong>🕵️ Incognito Mode:</strong> <span id="incognito">-</span></p>
+      <p><strong>🆔 Fingerprint ID:</strong> <span id="fingerprint">-</span></p>
+      <p><strong>🧯 Exposure Level:</strong> <span id="exposure">-</span></p>
+      <p><strong>🖥️ Device:</strong> <span id="device">-</span></p>
+      <p><strong>🌐 Browser:</strong> <span id="browser">-</span></p>
+      <p><strong>🪫 Battery:</strong> <span id="battery">-</span></p>
+      <p><strong>🌍 IP Address:</strong> <span id="ip">-</span></p>
+      <p><strong>📍 Location:</strong> <span id="locationText">-</span></p>
+      <p><strong>📦 Resolution:</strong> <span id="resolution">-</span></p>
+      <p><strong>🗣️ Language:</strong> <span id="language">-</span></p>
+      <p><strong>🕒 Timezone:</strong> <span id="timezone">-</span></p>
+      <p><strong>🎥 Camera Permission:</strong> <span id="camera">-</span></p>
+      <p><strong>🎙️ Microphone Permission:</strong> <span id="microphone">-</span></p>
+      <p><strong>📍 Location Permission:</strong> <span id="location">-</span></p>
+    </div>
+
+    <!-- Rescan & PDF -->
+    <div class="mt-6 hidden space-y-4" id="rescanBlock">
+      <p class="text-xl font-semibold">Privacy Grade: <span id="privacyGrade" class="font-bold text-green-400">-</span></p>
+      <button id="rescan" class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg transition">
+        🔁 Rescan
+      </button>
+      <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg">
+        📄 Save Report as PDF
+      </button>
+    </div>
+  </div>
+</body>
+</html>
