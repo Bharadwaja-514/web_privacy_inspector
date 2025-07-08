@@ -26,7 +26,6 @@ Save your results as a .txt Privacy Report
 
 Responsive and stylish UI with Tailwind CSS
 
-OUTPUT LINK:https://bharadwaja-514.github.io/web_security_inspector
 
 💡 Why This Project?
 To raise awareness about the kinds of private information your browser exposes without you realizing—and how much access websites can gain with minimal permission.
